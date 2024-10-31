@@ -19,6 +19,17 @@ CREATE TABLE IF NOT EXISTS CUSTOMERS(
 )
 """
 cursor.execute(create_query_customers)
-
-
+##cars_info table 
+create_query_carsinfo = """
+CREATE TABLE IF NOT EXISTS CARS_INFO(
+    car_id INT PRIMARY KEY,
+    car_model varchar(50),
+    year_of_manufacture varchar(5),
+    car_plate_number varchar(40),
+    seats int,
+    fuel_type varchar(10),
+    transmission_mode varchar(15),
+    rental_status varchar(15),
+)
+"""
 

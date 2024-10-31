@@ -1,4 +1,4 @@
-import mysql.connector 
+import mysql.connector
 mydb = mysql.connector.connect(host="127.0.0.1",user="root",passwd="ppp",database="vatsalya",charset="utf8")
 if mydb.is_connected():
     print("Connected successfully")
@@ -7,16 +7,18 @@ else:
 
 cursor = mydb.cursor()
 
-table_e = False
-def CheckTable():
-    cursor.execute("SHOW TABLES;")
-    tables = cursor.fetchall()
-    ex_table = []
-    for i in tables:
-        ex_table.append()
-    if "customers" not in ex_tables:
-        print("")
-    else:
-        cursor.execute("CREATE TABLE CUSTOMERS;")
+##check if table exists if not create it
+##customers table
+create_query_customers = """
+CREATE TABLE IF NOT EXISTS CUSTOMERS(
+    customer_id INT PRIMARY KEY,
+    customer_name varchar(40),
+    customer_address varchar(60),
+    payment varchar(40),
+    id_submitted varchar(15)
+)
+"""
+cursor.execute(create_query_customers)
 
-CheckTable()
+
+
